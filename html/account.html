@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bakeology | My Account</title>
+  <link rel="stylesheet" href="/style/accountStyle.css">
+</head>
+<body>
+  <header>
+    <h1>Bakeology</h1>
+    <button id="homeBtn">← Back to Home</button>
+  </header>
+
+  <main class="account-container">
+    <div class="landscape-container">
+      <div class="left-column">
+        <section class="profile-section">
+          <img src="../images/cakes-removebg-preview.png" alt="User Avatar" class="profile-pic">
+          <h2 id="username">John Doe</h2>
+          <p id="email">johndoe@example.com</p>
+          <p class="joined">Joined: January 2025</p>
+        </section>
+
+        <section class="details-section">
+          <div class="info-card">
+            <h3>Account Information</h3>
+            <p><strong>Username:</strong> John Doe</p>
+            <p><strong>Email:</strong> johndoe@example.com</p>
+            <p><strong>Account Type:</strong> Regular</p>
+          </div>
+          <div class="info-card">
+            <h3>Recent Activity</h3>
+            <p>Last Login: Nov 2, 2025</p>
+            <p>Last Recipe Viewed: Garlic Bread</p>
+          </div>
+        </section>
+      </div>
+
+      <div class="right-column">
+        <section class="favorites-section">
+          <h2>Your Favorite Recipes</h2>
+          <div class="fav-grid">
+            <div class="fav-card">
+              <img src="../images/cookies-removebg-preview.png" alt="Cookies">
+              <h4 class="recipe-name">Cookies</h4>
+              <button class="view-recipe" data-recipe="cookies">View Recipe</button>
+            </div>
+
+            <div class="fav-card">
+              <img src="../images/cakes-removebg-preview.png" alt="Cake">
+              <h4 class="recipe-name">Cake</h4>
+              <button class="view-recipe" data-recipe="cake">View Recipe</button>
+            </div>
+
+            <div class="fav-card">
+              <img src="../images/cinnamon.png" alt="Cinnamon Bread">
+              <h4 class="recipe-name">Cinnamon Bread</h4>
+              <button class="view-recipe" data-recipe="cinnamon">View Recipe</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <div id="recipePopup" class="popup">
+    <div class="popup-content">
+      <span class="close">&times;</span>
+      <div class="popup-left">
+        <img id="popupImage" src="" alt="Recipe Image">
+      </div>
+      <div class="popup-right">
+        <h2 id="popupTitle"></h2>
+        <pre id="popupSteps"></pre>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/account.js"></script>
+</body>
+</html>

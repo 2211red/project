@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recipe Page</title>
+  <link rel="stylesheet" href="/style/recipe.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">Bakeology</div>
+    <nav>
+      <a href="product.html">Home</a>
+      <a href="product.html">Products</a>
+      <a href="recipe.html" class="active">Recipe</a>
+      <a href="feedback.html">Feedback</a>
+    </nav>
+    <div class="account">
+      <a id="acc" href="cart.html">Cart</a>
+      <button class="register">Accounts</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="recipe-top">
+      <h2>Hello, User</h2>
+      <h2 id="greetings">What recipe would you like to learn?</h2>
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search a recipe..." />
+      </div>
+    </section>
+
+    <section class="recipe-container" id="recipeContainer">
+      <div class="recipe-card" data-title="Classic Bread">
+        <img src="/images/bread.png" alt="Bread" />
+        <div class="recipe-info">
+          <h2>Classic Bread</h2>
+          <p>Fluffy homemade bread made with love and patience.</p>
+          <button class="view-recipe" data-recipe="bread" data-image="/images/bread.png">View Recipe</button>
+        </div>
+      </div>
+
+      <div class="recipe-card" data-title="Garlic Bread">
+        <img src="/images/cinnamon.png" alt="Garlic Bread" />
+        <div class="recipe-info">
+          <h2>Garlic Bread</h2>
+          <p>Toasted bread topped with garlic butter and herbs.</p>
+          <button class="view-recipe" data-recipe="garlic" data-image="/images/cinnamon.png">View Recipe</button>
+        </div>
+      </div>
+
+      <div class="recipe-card" data-title="Banana Bread">
+        <img src="/images/cakes-removebg-preview.png" alt="Banana Bread" />
+        <div class="recipe-info">
+          <h2>Banana Bread</h2>
+          <p>Sweet and moist banana loaf perfect for any snack.</p>
+          <button class="view-recipe" data-recipe="banana" data-image="/images/cakes-removebg-preview.png">View Recipe</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="recipePopup" class="popup">
+    <div class="popup-content">
+      <div class="popup-left">
+        <h2 id="popupTitle">Recipe Title</h2>
+        <pre id="popupSteps">Step-by-step instructions will appear here.</pre>
+        <button class="close">Close</button>
+      </div>
+      <div class="popup-right">
+        <img id="popupImage" src="" alt="Recipe Image" />
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/recipe.js"></script>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const recipeCards = document.querySelectorAll('.recipe-card');
+
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.toLowerCase();
+      recipeCards.forEach(card => {
+        const title = card.getAttribute('data-title').toLowerCase();
+        card.style.display = title.includes(query) ? 'block' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>

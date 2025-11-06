@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order Page</title>
+  <link rel="stylesheet" href="/style/order.css" />
+</head>
+<body>
+  <div class="order-container">
+    <div class="order-form">
+      <h2>Shipping Information</h2>
+      <form id="orderForm">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="Enter your name" required />
+
+        <label for="phone">Phone Number</label>
+        <input type="text" id="phone" placeholder="Enter your phone number" required />
+
+        <label for="address">Address</label>
+        <textarea id="address" placeholder="Enter your address" required></textarea>
+
+        <h3>Payment Method</h3>
+        <div class="payment-methods">
+          <label class="payment-option">
+            <input type="radio" name="payment" value="gcash" required />
+            <span>GCash</span>
+          </label>
+
+          <label class="payment-option">
+            <input type="radio" name="payment" value="cod" />
+            <span>Cash on Delivery</span>
+          </label>
+
+          <label class="payment-option">
+            <input type="radio" name="payment" value="paypal" />
+            <span>PayPal</span>
+          </label>
+        </div>
+
+       
+        <p id="formError" style="color: red; font-weight: 600; margin-top: 10px;"></p>
+
+        <button type="submit" class="place-order">Place Order</button>
+      </form>
+    </div>
+
+  <div class="order-summary">
+  <h2>Order Summary</h2>
+  <div class="product-details">
+
+  </div>
+
+  <div class="order-summary-bottom">
+    <div class="order-grand-total">Grand Total: ₱0.00</div>
+    <button class="cancel-btn">Cancel Order</button>
+  </div>
+</div>
+
+
+
+
+  <div id="orderNotification" style="
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #4BB543;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 18px;
+    z-index: 9999;
+    transform: translateY(-100%);
+    transition: transform 0.5s ease;
+  ">
+    <p id="orderNotificationText"></p>
+  </div>
+  
+
+  <script src="/js/order.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback | Bakeology</title>
+  <link rel="stylesheet" href="/style/feedback.css">
+
+</head>
+<body>
+  <header>
+    <div class="logo">Bakeology</div>
+    <nav>
+      <a href="product.html">Home</a>
+      <a href="product.html">Products</a>
+      <a href="recipe.html">Recipe</a>
+      <a href="feedback.html" class="active">Feedback</a>
+    </nav>
+    <div class="account">
+      <a id="acc" href="cart.html">Cart</a>
+      <button class="register">Accounts</button>
+    </div>
+  </header>
+
+  <div id="notification" class="notification"></div>
+
+  <main class="feedback-main">
+    <div class="feedback-container">
+      <div class="feedback-left">
+        <h1>We’d Love Your Feedback</h1>
+        <p>Help us bake a better experience by sharing your thoughts and suggestions.</p>
+
+        <form id="feedbackForm">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+          <label>Are you a Bakeology customer?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="isCustomer" value="yes" required> Yes</label>
+            <label><input type="radio" name="isCustomer" value="no"> No</label>
+          </div>
+
+          <label for="feedback">Your Feedback</label>
+          <textarea id="feedback" name="feedback" rows="5" placeholder="Tell us what you think..." required></textarea>
+
+          <button type="submit" class="submit-btn">Submit Feedback</button>
+        </form>
+      </div>
+
+      <div class="feedback-right">
+        <img src="/images/cakes-removebg-preview.png" alt="Bakeology Feedback">
+        <h2>“Baking smiles, one loaf at a time.”</h2>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Bakeology. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('feedbackForm');
+    const notification = document.getElementById('notification');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = form.name.value.trim();
+      const feedback = form.feedback.value.trim();
+      
+      if (name && feedback) {
+        showNotification(`Thank you, ${name} Your feedback has been received.`);
+        form.reset();
+      }
+    });
+
+    function showNotification(message) {
+      notification.textContent = message;
+      notification.classList.add('show');
+      setTimeout(() => {
+        notification.classList.remove('show');
+      }, 3000);
+    }
+  </script>
+
+
+</body>
+</html>

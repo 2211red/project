@@ -1,0 +1,277 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #ecd8b9;
+  color: #222;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 80px;
+  background-color: #ecd8b9;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+header h1 {
+  font-size: 40px;
+  color: #b45f04;
+}
+
+#homeBtn {
+  background: #000000;
+  color: #fff;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+#homeBtn:hover {
+  background: #8e4500;
+}
+
+.account-container {
+  max-width: 1600px; 
+  margin: 50px auto;
+  padding: 40px;
+}
+
+.landscape-container {
+  display: flex;
+  border: 0.4px solid #050505;
+  flex-direction: row;
+  background: #fff;
+  border-radius: 30px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  overflow: hidden;
+  padding: 50px;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+
+.left-column {
+  flex: 1 1 450px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+
+.profile-section {
+  text-align: left;
+}
+
+.profile-pic {
+  width: 220px; 
+  height: 220px;
+  border-radius: 50%;
+  border: 6px solid #b45f04;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  margin-bottom: 25px;
+}
+
+.profile-section h2 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.profile-section p {
+  font-size: 22px;
+  color: #555;
+}
+
+.joined {
+  font-size: 18px;
+  color: #777;
+}
+
+.details-section {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.info-card {
+  border: 0.4px solid black;
+  background: #fffaf3;
+  padding: 40px;
+  border-radius: 25px;
+  width: 100%;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transition: transform 0.3s;
+}
+
+.info-card:hover {
+  transform: scale(1.04);
+}
+
+.info-card h3 {
+  font-size: 26px;
+  color: #b45f04;
+  margin-bottom: 18px;
+}
+
+.info-card p {
+  font-size: 20px;
+  color: #555;
+  line-height: 1.6;
+}
+
+
+.right-column {
+  flex: 2 1 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.favorites-section h2 {
+  font-size: 32px;
+  color: #040404;
+  margin-bottom: 30px;
+}
+
+.fav-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.fav-card {
+  border: 0.4px solid #050505;
+  background: #fff;
+  border-radius: 25px;
+  width: 260px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fav-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+}
+
+.fav-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  border-radius: 18px;
+  margin-bottom: 12px;
+}
+
+.recipe-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #050505;
+  margin-bottom: 12px;
+}
+
+.view-recipe {
+  background: #b45f04;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 16px;
+  font-size: 18px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.view-recipe:hover {
+  background: #8e4500;
+}
+
+
+
+.info-card p {
+  font-size: 18px; 
+  color: #555;
+  line-height: 1.6;
+}
+
+.info-card h3 {
+  font-size: 24px; 
+  color: #060606;
+  margin-bottom: 15px;
+}
+
+
+.popup {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup.active {
+  display: flex;
+}
+
+.popup-content {
+  background: #fffaf2;
+  display: flex;
+  width: 1000px;
+  height: 600px;
+  border-radius: 20px;
+  overflow: hidden;
+  animation: fadeInUp 0.4s ease forwards;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+}
+
+.popup-left, .popup-right {
+  flex: 1;
+  padding: 40px;
+}
+
+.popup-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.popup-right h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #4a3c2a;
+}
+
+.popup-right pre {
+  font-size: 20px;
+  white-space: pre-wrap;
+  line-height: 1.6;
+  color: #333;
+}
+
+.close {
+  position: absolute;
+  top: 15px; right: 25px;
+  font-size: 40px;
+  cursor: pointer;
+  color: #333;
+  transition: 0.2s;
+}
+.close:hover {
+  color: #d9534f;
+}
+
+@keyframes fadeInUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+

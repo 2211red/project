@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart | Bakeology</title>
+  <link rel="stylesheet" href="/style/cart.css">
+</head>
+<body>
+  <header>
+    <div class="logo">Bakeology</div>
+    <nav>
+      <a href="product.html">Home</a>
+      <a href="product.html">Products</a>
+      <a href="recipe.html">Recipe</a>
+      <a href="feedback.html">Feedback</a>
+    </nav>
+    <div class="account">
+      <a href="cart.html" id="cartLink">Cart</a>
+      <button id="accountBtn">Accounts</button>
+    </div>
+  </header>
+
+  <main class="cart-container">
+    <h1>Your Cart</h1>
+    <div id="cartItems" class="cart-items">
+    </div>
+
+    <div class="cart-summary">
+      <p>Total: ₱<span id="cartTotal">0</span></p>
+      <button id="checkoutBtn">Checkout</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Bakeology. All Rights Reserved.</p>
+  </footer>
+
+  <script src="/js/cart.js"></script>
+</body>
+</html>

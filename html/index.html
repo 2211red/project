@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bakeology</title>
+  <link rel="stylesheet" href="/style/indexStlye.css">
+</head>
+<body>
+  <header>
+    <div class="logo">Bakeology</div>
+    <nav>
+      <a href="index.html" class="">Home</a>
+      <a href="products" class="nav-link">Products</a>
+      <a href="" class="nav-link">Recipe</a>
+      <a href="" class="nav-link">Feedback</a>
+    </nav>
+    <div class="account">
+      <a id="acc" href="login.html">login</a>
+      <button class="register">Accounts</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="content">
+      <p class="tagline">ENDLESS DISCOVERY OF DELICIOUS</p>
+      <h1>Bakery</h1>
+      <p class="desc">
+        Cake gummi bears dragée cupcake. Halvah donut gummies halvah apple pie liquorice bear claw caramels. 
+        Jelly-o sweet roll bonbon brownie. Cookie danish tart cheesecake cupcake brownie.
+      </p>
+      <div class="buttons">
+        <button class="btn-dark">register</button>
+        <button class="btn-outline" id="learnMoreBtn">Learn more</button>
+      </div>  
+      <div class="links">
+        <p><strong>Cooking Tips</strong><br>Browse some cooking Tips</p>
+        <p><strong>Recipes</strong><br>recipes available</p>
+      </div>
+    </section>
+
+    <section class="image-section">
+      <div class="slides">
+        <img src="/images/cinnamon.png" alt="Bakery bun">
+        <img src="/images/Croissant-removebg-preview.png" alt="Cake">
+        <img src="/images/cookies-removebg-preview.png" alt="Pastry">
+        <img src="/images/cakes-removebg-preview.png" alt="Cookies">
+      </div>
+    </section>
+  </main>
+
+  <div id="loginPopup" class="popup">
+    <div class="popup-content">
+      <span class="close-popup">&times;</span>
+      <h2> Login Required</h2>
+      <p>Please log in to continue.</p>
+      <div class="popup-buttons">
+        <button id="goLogin">Go to Login</button>
+        <button id="cancelPopup">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <script>
+    const btnDark = document.querySelector(".btn-dark");
+    btnDark.addEventListener("click", () => {
+      window.location.href = "login.html";
+    });
+
+    const learnMoreBtn = document.getElementById("learnMoreBtn");
+    learnMoreBtn.addEventListener("click", () => {
+      window.location.href = "about.html";
+    });
+  </script>
+
+  <script src="/js/loginSignin.js"></script>
+</body>
+</html>

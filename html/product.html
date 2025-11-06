@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bakeology</title>
+  <link rel="stylesheet" href="/style/productStyle.css">
+</head>
+<body>
+  <header>
+    <div class="logo">Bakeology</div>
+    <nav>
+      <a href="product.html">Home</a>
+      <a href="product.html">Products</a>
+      <a href="recipe.html">Recipe</a>
+      <a href="feedback.html">Feedback</a>
+    </nav>
+    <div class="account">
+      <a id="acc" href="cart.html">Cart</a>
+      <button class="register" id="account">Accounts</button>
+    </div>
+  </header>
+
+  <main id="mainContent">
+    <section class="content">
+      <p class="tagline">ENDLESS DISCOVERY OF DELICIOUS</p>
+      <h1>Bakery</h1>
+      <p class="desc">
+        Cake gummi bears dragée cupcake. Halvah donut gummies halvah apple pie liquorice bear claw caramels. 
+        Jelly-o sweet roll bonbon brownie. Cookie danish tart cheesecake cupcake brownie.
+      </p>
+      <div class="buttons">
+        <button class="btn-dark">Recipes</button>
+        <button id="shopBtn" class="btn-outline">Shop now</button>
+      </div>
+      <div class="links">
+        <p><strong>Cooking Tips</strong><br>Browse some cooking Tips</p>
+        <p><strong>Recipes</strong><br>recipes available</p>
+      </div>
+    </section>
+
+    <section class="image-section">
+      <div class="slides">
+        <img src="/images/cinnamon.png" alt="Bakery bun">
+        <img src="/images/Croissant-removebg-preview.png" alt="Cake">
+        <img src="/images/cookies-removebg-preview.png" alt="Pastry">
+        <img src="/images/cakes-removebg-preview.png" alt="Cookies">
+      </div>
+    </section>
+  </main>
+
+  <button id="backBtn">&#8593;</button> 
+
+  <section id="products" class="products">
+    <div class="product-header">
+      <h3 id="greeting">Hello, user1</h3>
+      <h2 id="label-search">What would you like to eat?</h2>
+      <input type="text" id="searchInput" placeholder="Search for products...">
+    </div>
+
+    <h2 class="divider">Our Bestsellers</h2>
+    <div id="Bestsellers" class="product-grid">
+      <!-- diri ma generate and product :)-->
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Bakeology. All Rights Reserved.</p>
+  </footer>
+
+  <div class="product-popup" id="productPopup">
+    <div class="popup-content">
+      <span class="close-popup">&times;</span>
+      <div class="popup-left">
+        <img id="popupImage" src="" alt="Product Image">  
+        <div class="quantity">
+          <button id="decrease">-</button>
+          <span id="qty">1</span>
+          <button id="increase">+</button>
+        </div>  
+      </div>
+      <div class="popup-right">
+        <p style="font-size: 70px; margin-right: 380px; font-weight: bold;">Selection</p>
+        <h2 id="popupName"></h2>
+        <p class="popup-price" id="popupPrice"></p>
+        <div class="popup-rating">
+          <span class="star" data-value="1">&#9733;</span>
+          <span class="star" data-value="2">&#9733;</span>
+          <span class="star" data-value="3">&#9733;</span>
+          <span class="star" data-value="4">&#9733;</span>
+          <span class="star" data-value="5">&#9733;</span>
+          <span id="rating-value">5</span>/5     
+        </div>
+        <h3 class="h3">Description</h3>
+        <p class="popup-desc" id="popupDesc"></p>
+        <div class="popup-total">
+          <p>Total: ₱<span id="totalPrice">0</span>5</p>
+        </div>
+
+        <h3 class="h3">Recommended Sides</h3>
+        <div class="recommended-items">
+          <!-- diri ang recommended products-->
+        </div>
+
+        <div class="popup-buttons">
+          <button class="add-cart"><img class="cart-container" src="/images/shopping-cart.png" alt="">Add to Cart</button>
+          <button class="order-now">Order Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Added to Cart Notification -->
+<div id="cartNotification" class="cart-notification">
+  <p id="cartNotificationText"></p>
+</div>
+
+
+  <script src="/js/product.js"></script>
+</body>
+</html>

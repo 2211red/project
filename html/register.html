@@ -1,0 +1,63 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bakeology Login</title>
+    <link rel="stylesheet" href="/style/register.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-section">
+        <h2>Welcome to <span>Bakeology</span></h2>
+        <p class="subtitle">Freshly baked goodness, every login.</p>
+
+        <form>
+          <label for="text">Username</label>  
+          <input type="text" id="username" placeholder="Enter your Username" required>
+
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="Enter your Email" required> 
+
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter your password" required>
+
+          <div class="options">
+            <label><input id="check" type="checkbox"> Remember me</label>
+            <a href="#">Forgot Password?</a>
+          </div>
+
+          <button type="submit" class="btn-login">Sign in</button>
+
+          <div class="divider">or continue with</div>
+
+          <div class="social-login">
+            <button class="google"> <img id="GImage" src="/images/google.png" alt=""> Google</button>
+            <button class="facebook"><img id="fbImage" src="/images/communication.png" alt=""> Facebook</button>
+          </div>
+
+          <p class="bottom-text">
+            Don’t have an account? <a href="login.html">Sign up</a>
+          </p>
+        </form>
+      </div>
+
+      <div class="image-section">
+        <button class="ex">Back to Home →</button>
+        <img id="logo-img" src="/images/bread.png" alt="Bakery Image">
+        <div class="image-overlay"></div>
+        <div class="overlay-text">
+          <h2>Start your day with love & butter</h2>
+          <p>Freshly baked breads and pastries waiting just for you.</p>
+        </div>
+      </div>
+    </div>
+    <script>
+      const ex = document.querySelector(".ex");
+      ex.addEventListener("click", () =>{
+          window.location.href = "index.html";
+      } );
+    </script>
+    <script src="/js/loginSignin.js"></script>
+  </body>
+  </html>

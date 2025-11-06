@@ -1,0 +1,266 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #ecd8b9;
+  color: #222;
+  padding: 40px 80px;
+}
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 60px;
+  color: #f5a623;
+}
+
+nav a {
+  margin: 0 15px;
+  color: #444;
+  text-decoration: none;
+  font-size: 30px;
+}
+
+.account {
+  color: #f5a623;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.register {
+  background: #222;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-size: 25px;
+}
+h2{
+  text-align: center;
+}
+
+
+main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 80px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15%;
+  width: 50%;
+}
+
+.tagline {
+  font-size: 30px;
+  color: #f5a623;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-size: 100px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.desc {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  width: 90%;
+  font-size:25px;
+}
+
+.buttons {
+  display: flex;
+  gap: 35px;
+  margin-bottom: 30px;
+  width: 60%;
+}
+.buttons button a{
+  text-decoration: none;
+  color: white;
+}
+
+.btn-dark {
+  background: #222;
+  color: white;
+  border: none;
+  padding: 18px 35px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 30px;
+  width: 30%;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid #f5a623;
+  color: #f5a623;
+  padding: 10px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 30px;
+  width: 30%;
+}
+
+.links {
+  display: flex;
+  gap: 50px;
+  margin-top: 20px;
+}
+.links p{
+  font-size: 25px;
+}
+
+.image-section img {
+  width: 200px;
+  height: auto;
+  margin-right: 200px;
+  
+}
+
+#acc{
+  color: #444;
+  font-size: 30px;
+}
+
+
+.image-section {
+  position: relative;
+  width: 800px; 
+  height: 600px;
+  overflow: hidden;
+  border-radius: 15px;
+  margin-right: 50px;
+}
+
+
+.image-section  {
+  display: flex;
+  width: 38%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 15px;
+  margin-right: 50px;
+
+  mask-image: linear-gradient(
+  to right, 
+  transparent 0%,
+  black 10%, 
+  black 90%, 
+  transparent 100%);
+
+  mask-size: 100% 100%;
+  mask-image: linear-gradient(
+    to right, 
+    transparent 0%, 
+    black 10%, 
+    black 90%, 
+    transparent 100%);
+  mask-size: 100% 100%;
+ 
+}
+.slides{
+  display: flex;
+  width: 400%;  
+  height: 100%;
+  animation: slides 15s infinite ease-in-out;
+}
+
+.image-section .slides img {
+  width: 80%;
+  height: 60%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+
+@keyframes slides {
+  0%, 15%    { transform: translateX(0); }         
+  25%, 40%   { transform: translateX(-100%); }     
+  50%, 65%   { transform: translateX(-200%); }     
+  75%, 90%   { transform: translateX(-300%); }    
+  100%       { transform: translateX(0); }       
+}
+
+
+.products h2 {
+  font-size: 45px;
+  color: #f5a623;
+  margin-bottom: 50px;
+}
+
+.product-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.product-card {
+  background: #fff1e6;
+  border-radius: 15px;
+  padding: 20px;
+  width: 250px;
+  transition: transform 0.3s;
+}
+
+.product-card:hover { transform: translateY(-10px); }
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.product-card h3 {
+  font-size: 24px;
+  color: #d2691e;
+  margin-bottom: 10px; 
+}
+
+.product-card p { 
+  font-size: 18px; 
+  color: #555; 
+}
+
+footer {
+  margin-top: 50px;
+  display: flex;
+  background-color: #fff1e6;
+  text-align: center;
+  justify-content: center;
+  padding: 30px;
+  font-size: 20px;
+  color: #444;
+}
+
+@media (max-width: 950px) {
+  .hero { flex-direction: column; text-align: center; gap: 40px; }
+  .hero-text, .hero-carousel { width: 100%; }
+  h1 { font-size: 60px; }
+  .desc, .tagline { font-size: 20px; }
+  .products h2 { font-size: 35px; }
+  .product-card { width: 80%; }
+}
