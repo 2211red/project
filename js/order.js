@@ -13,7 +13,6 @@ function updateOrderSummary() {
   summaryContainer.innerHTML = "";
   if(orderItems.length === 0) {
     summaryContainer.innerHTML = "<p>No items to order.</p>";
-    grandTotalDiv.textContent = `Grand Total: ₱0.00`;
   } else {
     let grandTotal = 0;
     orderItems.forEach(item => {
@@ -76,16 +75,48 @@ if(placeOrderBtn){
     const phone = document.getElementById("phone").value.trim();
     const address = document.getElementById("address").value.trim();
     const payment = document.querySelector('input[name="payment"]:checked');
-    if(!name||!phone||!address||!payment){ errorText.textContent="Please fill in all required information."; return; }
+    if(!name||!phone||!address||!payment){ 
+      errorText.textContent="Please fill in all required information."; 
+      return; 
+    }
     errorText.textContent="";
 
     if(orderItems.length === 0) {
       const singleProduct = JSON.parse(sessionStorage.getItem("selectedProduct"));
       if(singleProduct) orderItems.push(singleProduct);
     }
-    if(orderItems.length === 0){ errorText.textContent="Your cart is empty!"; return; }
+    if(orderItems.length === 0){ 
+      errorText.textContent="Your cart is empty!"; 
+      return; 
+    }
 
     showOrderNotification("Your order has been placed successfully!");
+
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    if(currentUser){
+      if(!currentUser.orders) currentUser.orders = [];
+      const date = new Date().toLocaleString(); 
+      orderItems.forEach(item=>{
+        currentUser.orders.push({
+          product: item.name,
+          image: item.image,
+          quantity: item.quantity,
+          price: item.price,
+          total: item.total,
+          date: date
+        });
+      });
+
+
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+      const index = users.findIndex(u => u.email === currentUser.email);
+      if(index !== -1){
+        users[index] = currentUser;
+        localStorage.setItem("users", JSON.stringify(users));
+      }
+
+      localStorage.setItem("currentUser", JSON.stringify(currentUser));
+    }
 
     const receiptItemsContainer = receiptPopup.querySelector(".receipt-items");
     const receiptDetails = receiptPopup.querySelector(".receipt-details");
@@ -115,10 +146,14 @@ if(placeOrderBtn){
     `;
     receiptPopup.classList.add("active");
     document.body.classList.add("popup-active");
+
     sessionStorage.removeItem("cart");
+    sessionStorage.removeItem("selectedOrder");
+    sessionStorage.removeItem("selectedProduct");
     document.getElementById("orderForm").reset();
   });
 }
+
 
 const cancelBtn = document.querySelector(".cancel-btn");
 if(cancelBtn){
@@ -128,3 +163,41 @@ if(cancelBtn){
     window.location.href="product.html";
   });
 }
+
+
+const phoneInput = document.getElementById("phone");
+phoneInput.addEventListener("input", () => {
+  const onlyNumbers = phoneInput.value.replace(/\D/g, '');
+  phoneInput.style.borderColor = (phoneInput.value !== onlyNumbers) ? "red" : "#c7b299";
+  phoneInput.value = onlyNumbers;
+});
+
+
+const addressInput = document.getElementById("address");
+const dropdownBtn = document.querySelector(".dropdown-btn");
+const addressList = document.querySelector(".address-list");
+
+dropdownBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  addressList.style.display = (addressList.style.display === "block") ? "none" : "block";
+});
+
+addressList.querySelectorAll("li").forEach(item => {
+  item.addEventListener("click", () => {
+    addressInput.value = item.textContent;
+    addressList.style.display = "none";
+  });
+});
+
+document.addEventListener("click", () => { addressList.style.display = "none"; });
+
+const formInputs = document.querySelectorAll("#orderForm input, #orderForm textarea");
+formInputs.forEach(field => {
+  field.addEventListener("input", () => { errorText.textContent = ""; });
+  field.addEventListener("focus", () => { errorText.textContent = ""; });
+});
+
+const paymentOptions = document.querySelectorAll('input[name="payment"]');
+paymentOptions.forEach(option => {
+  option.addEventListener("change", () => { errorText.textContent = ""; });
+});

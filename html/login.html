@@ -6,28 +6,40 @@
   <title>Bakeology Login</title>
   <link rel="stylesheet" href="/style/loginStyle.css">
   <style>
-    
 .password-wrapper {
   position: relative;
-  display: flex;
-  align-items: center; 
+  width: 100%;
 }
 
 .password-wrapper input {
   width: 100%;
-  padding-right: 50px; 
+  padding-right: 40px;
   box-sizing: border-box;
 }
 
-.toggle-password {
+.password-wrapper .eye-icon {
   position: absolute;
-  right: 12px;
-  top: 50%;
+  top: 42%;
+  right: 10px;
   transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
   cursor: pointer;
-  font-size: 28px; 
-  user-select: none;
+  z-index: 2;
+  opacity: 0.8;
 }
+
+.password-wrapper .eye-icon:hover {
+  opacity: 1;
+}
+
+.error-msg {
+  color: red;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+
 
   </style>
 </head>
@@ -41,10 +53,13 @@
         <label for="email">Email Address</label>
         <input type="email" id="email" placeholder="Enter your email" required>
 
-        <label for="password">Password</label>
+       <label for="password">Password</label>
         <div class="password-wrapper">
           <input type="password" id="password" placeholder="Enter your password" required>
+          <img src="/images/hide.png" class="eye-icon">
         </div>
+        <div class="error-msg" id="passwordError"></div>
+
 
         <div class="options">
           <label><input id="check" type="checkbox"> Remember me</label>
@@ -74,7 +89,7 @@
       <div id="login-btn">
         <button class="ex">Back to Home →</button>  
       </div>
-      <img id="logo-img" src="/images/bread.png" alt="Bakery Image">
+      <img id="logo-img" src="/images/logo.png" alt="Bakery Image">
       <div class="image-overlay"></div>
       <div class="overlay-text">
         <h2>Start your day with love & butter</h2>
@@ -83,6 +98,6 @@
     </div>
   </div>
 
-  <script src="/js/loginSignin.js"></script>
+  <script src="/js/login.js"></script>
 </body>
 </html>

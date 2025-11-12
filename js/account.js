@@ -9,47 +9,116 @@ homeBtn.addEventListener("click", () => {
   window.location.href = "product.html";
 });
 
-const recipes = {
-  cookies: {
-    title: "Chocolate Chip Cookies",
-    steps: `1. Mix butter and sugar.\n2. Add eggs and vanilla.\n3. Stir in flour and chocolate chips.\n4. Bake for 12 mins at 180°C.`,
-    image: "../images/cookies-removebg-preview.png"
-  },
-  cake: {
-    title: "Vanilla Cake",
-    steps: `1. Mix flour, sugar, and eggs.\n2. Add milk and butter.\n3. Bake at 175°C for 30 mins.\n4. Frost and serve.`,
-    image: "../images/cakes-removebg-preview.png"
-  },
-  cinnamon: {
-    title: "Cinnamon Bread",
-    steps: `1. Mix flour, sugar, cinnamon.\n2. Add yeast and milk.\n3. Knead and let rise.\n4. Bake 25 mins at 190°C.`,
-    image: "../images/cinnamon.png"
+
+const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+if (!currentUser) {
+  window.location.href = "login.html";
+} else {
+  document.getElementById("username").textContent = currentUser.username;
+  document.getElementById("email").textContent = currentUser.email;
+
+  const infoCards = document.querySelectorAll(".info-card p");
+  infoCards[0].innerHTML = `<strong>Username:</strong> ${currentUser.username}`;
+  infoCards[1].innerHTML = `<strong>Email:</strong> ${currentUser.email}`;
+  infoCards[2].innerHTML = `<strong>Account Type:</strong> Regular`;
+}
+
+
+
+const logoutPopup = document.createElement("div");
+logoutPopup.classList.add("logout-popup");
+logoutPopup.innerHTML = `
+  <div class="logout-popup-content">
+    <h3>Are you sure you want to log out?</h3>
+    <div class="logout-buttons">
+      <button id="confirmLogout">Yes</button>
+      <button id="cancelLogout">Cancel</button>
+    </div>
+  </div>
+`;
+document.body.appendChild(logoutPopup);
+
+const logoutBtn = document.createElement("button");
+logoutBtn.id = "logoutBtn";
+logoutBtn.textContent = "Log Out";
+logoutBtn.style.marginTop = "12px";
+logoutBtn.style.padding = "8px 16px";
+logoutBtn.style.border = "none";
+logoutBtn.style.borderRadius = "8px";
+logoutBtn.style.backgroundColor = "#f44336";
+logoutBtn.style.color = "white";
+logoutBtn.style.cursor = "pointer";
+logoutBtn.style.fontSize = "15px";
+logoutBtn.style.transition = "0.2s";
+
+logoutBtn.addEventListener("mouseenter", () => (logoutBtn.style.backgroundColor = "#d32f2f"));
+logoutBtn.addEventListener("mouseleave", () => (logoutBtn.style.backgroundColor = "#f44336"));
+
+
+document.querySelector(".profile-section").appendChild(logoutBtn);
+
+
+logoutBtn.addEventListener("click", () => {
+  logoutPopup.classList.add("show");
+});
+
+
+logoutPopup.addEventListener("click", (e) => {
+  if (e.target.id === "confirmLogout") {
+    localStorage.removeItem("currentUser");
+    window.location.href = "login.html";
+  } else if (e.target.id === "cancelLogout" || e.target === logoutPopup) {
+    logoutPopup.classList.remove("show");
   }
-};
+});
 
-document.querySelectorAll(".view-recipe").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const key = btn.dataset.recipe;
-    const recipe = recipes[key];
-    if (!recipe) return;
+const ordersGrid = document.getElementById("ordersGrid");
+const noOrdersMsg = document.getElementById("noOrdersMsg");
 
-    popupTitle.textContent = recipe.title;
-    popupSteps.textContent = recipe.steps;
-    popupImage.src = recipe.image;
+if (!currentUser.orders) currentUser.orders = [];
 
-    popup.classList.add("active");
-    document.body.classList.add("popup-active");
+
+function displayOrders() {
+  ordersGrid.innerHTML = "";
+
+  if (currentUser.orders.length === 0) {
+    noOrdersMsg.style.display = "block";
+    return;
+  }
+
+  noOrdersMsg.style.display = "none";
+
+  currentUser.orders.forEach(order => {
+    const card = document.createElement("div");
+    card.classList.add("order-card");
+    card.innerHTML = `
+      <img style="margin-left: 20px;" src="${order.image}" alt="${order.product}">
+      <h4>${order.product}</h4>
+      <p>Ordered on: ${order.date}</p>
+    `;
+    ordersGrid.appendChild(card);
   });
-});
+} 
 
-closeBtn.addEventListener("click", () => {
-  popup.classList.remove("active");
-  document.body.classList.remove("popup-active");
-});
 
-window.addEventListener("click", (e) => {
-  if (e.target === popup) {
-    popup.classList.remove("active");
-    document.body.classList.remove("popup-active");
+displayOrders();
+
+
+function addOrder(product, image) {
+  const date = new Date().toLocaleDateString();
+  currentUser.orders.push({ product, image, date });
+
+ 
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  const index = users.findIndex(u => u.email === currentUser.email);
+  if (index !== -1) {
+    users[index] = currentUser;
+    localStorage.setItem("users", JSON.stringify(users));
   }
-});
+
+  localStorage.setItem("currentUser", JSON.stringify(currentUser));
+  displayOrders();
+}
+
+

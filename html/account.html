@@ -8,7 +8,7 @@
 </head>
 <body>
   <header>
-    <h1>Bakeology</h1>
+    <h1>GolderBakes</h1>
     <button id="homeBtn">← Back to Home</button>
   </header>
 
@@ -38,28 +38,14 @@
       </div>
 
       <div class="right-column">
-        <section class="favorites-section">
-          <h2>Your Favorite Recipes</h2>
-          <div class="fav-grid">
-            <div class="fav-card">
-              <img src="../images/cookies-removebg-preview.png" alt="Cookies">
-              <h4 class="recipe-name">Cookies</h4>
-              <button class="view-recipe" data-recipe="cookies">View Recipe</button>
-            </div>
+       <section class="order-history-section">
+  <h2>Your Order History</h2>
+  <div class="orders-grid" id="ordersGrid">
+    <!-- Orders will be dynamically added here -->
+  </div>
+  <p id="noOrdersMsg">You haven't ordered anything yet. Start baking! 🍞</p>
+</section>
 
-            <div class="fav-card">
-              <img src="../images/cakes-removebg-preview.png" alt="Cake">
-              <h4 class="recipe-name">Cake</h4>
-              <button class="view-recipe" data-recipe="cake">View Recipe</button>
-            </div>
-
-            <div class="fav-card">
-              <img src="../images/cinnamon.png" alt="Cinnamon Bread">
-              <h4 class="recipe-name">Cinnamon Bread</h4>
-              <button class="view-recipe" data-recipe="cinnamon">View Recipe</button>
-            </div>
-          </div>
-        </section>
       </div>
     </div>
   </main>
