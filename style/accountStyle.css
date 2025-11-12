@@ -8,30 +8,31 @@
 body {
   background-color: #ecd8b9;
   color: #222;
+  padding: 20px 10px 8px;
 }
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 25px 80px;
+  padding: 8px 15px;
   background-color: #ecd8b9;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 header h1 {
-  font-size: 40px;
+  font-size: 20px;
   color: #b45f04;
 }
 
 #homeBtn {
-  background: #000000;
+  background: #000;
   color: #fff;
   border: none;
-  padding: 15px 25px;
-  border-radius: 12px;
+  padding: 6px 10px;
+  border-radius: 7px;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 11px;
   transition: 0.3s;
 }
 
@@ -40,151 +41,148 @@ header h1 {
 }
 
 .account-container {
-  max-width: 1600px; 
-  margin: 50px auto;
-  padding: 40px;
+  max-width: 900px; 
+  margin: 15px auto;
+  padding: 10px;
 }
 
 .landscape-container {
   display: flex;
-  border: 0.4px solid #050505;
+  border: 0.15px solid #050505;
   flex-direction: row;
   background: #fff;
-  border-radius: 30px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.12);
   overflow: hidden;
-  padding: 50px;
-  gap: 40px;
+  padding: 15px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
-
 .left-column {
-  flex: 1 1 450px;
+  flex: 1 1 260px;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 15px;
 }
-
 
 .profile-section {
   text-align: left;
 }
 
 .profile-pic {
-  width: 220px; 
-  height: 220px;
+  width: 110px; 
+  height: 110px;
   border-radius: 50%;
-  border: 6px solid #b45f04;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-  margin-bottom: 25px;
+  border: 2px solid #b45f04;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  margin-bottom: 8px;
 }
 
 .profile-section h2 {
-  font-size: 40px;
-  margin-bottom: 10px;
+  font-size: 19px;
+  margin-bottom: 5px;
 }
 
 .profile-section p {
-  font-size: 22px;
+  font-size: 12px;
   color: #555;
 }
 
 .joined {
-  font-size: 18px;
+  font-size: 11px;
   color: #777;
 }
 
 .details-section {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 12px;
 }
 
 .info-card {
-  border: 0.4px solid black;
+  border: 0.15px solid black;
   background: #fffaf3;
-  padding: 40px;
-  border-radius: 25px;
+  padding: 16px;
+  border-radius: 13px;
   width: 100%;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
   transition: transform 0.3s;
 }
 
 .info-card:hover {
-  transform: scale(1.04);
+  transform: scale(1.01);
 }
 
 .info-card h3 {
-  font-size: 26px;
+  font-size: 16px;
   color: #b45f04;
-  margin-bottom: 18px;
+  margin-bottom: 8px;
 }
 
 .info-card p {
-  font-size: 20px;
+  font-size: 12px;
   color: #555;
-  line-height: 1.6;
+  line-height: 1.4;
 }
 
-
 .right-column {
-  flex: 2 1 700px;
+  flex: 2 1 360px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 12px;
 }
 
 .favorites-section h2 {
-  font-size: 32px;
+  font-size: 18px;
   color: #040404;
-  margin-bottom: 30px;
+  margin-bottom: 12px;
 }
 
 .fav-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 12px;
 }
 
 .fav-card {
-  border: 0.4px solid #050505;
+  border: 0.15px solid #050505;
   background: #fff;
-  border-radius: 25px;
-  width: 260px;
-  padding: 20px;
+  border-radius: 12px;
+  width: 160px;
+  padding: 8px;
   text-align: center;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .fav-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+  transform: scale(1.02);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
 
 .fav-card img {
   width: 100%;
-  height: 180px;
+  height: 105px;
   object-fit: contain;
-  border-radius: 18px;
-  margin-bottom: 12px;
+  border-radius: 10px;
+  margin-bottom: 6px;
 }
 
 .recipe-name {
-  font-size: 20px;
+  font-size: 12px;
   font-weight: 600;
   color: #050505;
-  margin-bottom: 12px;
+  margin-bottom: 4px;
 }
 
 .view-recipe {
   background: #b45f04;
   color: white;
   border: none;
-  padding: 14px;
-  border-radius: 16px;
-  font-size: 18px;
+  padding: 6px;
+  border-radius: 8px;
+  font-size: 10px;
   cursor: pointer;
   width: 100%;
 }
@@ -192,21 +190,6 @@ header h1 {
 .view-recipe:hover {
   background: #8e4500;
 }
-
-
-
-.info-card p {
-  font-size: 18px; 
-  color: #555;
-  line-height: 1.6;
-}
-
-.info-card h3 {
-  font-size: 24px; 
-  color: #060606;
-  margin-bottom: 15px;
-}
-
 
 .popup {
   position: fixed;
@@ -226,17 +209,17 @@ header h1 {
 .popup-content {
   background: #fffaf2;
   display: flex;
-  width: 1000px;
-  height: 600px;
-  border-radius: 20px;
+  width: 630px;
+  height: 360px;
+  border-radius: 10px;
   overflow: hidden;
   animation: fadeInUp 0.4s ease forwards;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  box-shadow: 0 3px 18px rgba(0,0,0,0.15);
 }
 
 .popup-left, .popup-right {
   flex: 1;
-  padding: 40px;
+  padding: 12px;
 }
 
 .popup-left img {
@@ -246,32 +229,150 @@ header h1 {
 }
 
 .popup-right h2 {
-  font-size: 36px;
-  margin-bottom: 20px;
+  font-size: 21px;
+  margin-bottom: 8px;
   color: #4a3c2a;
 }
 
 .popup-right pre {
-  font-size: 20px;
+  font-size: 12px;
   white-space: pre-wrap;
-  line-height: 1.6;
+  line-height: 1.3;
   color: #333;
 }
 
 .close {
   position: absolute;
-  top: 15px; right: 25px;
-  font-size: 40px;
+  top: 8px; right: 10px;
+  font-size: 22px;
   cursor: pointer;
   color: #333;
   transition: 0.2s;
 }
+
 .close:hover {
   color: #d9534f;
 }
 
 @keyframes fadeInUp {
-  from { transform: translateY(40px); opacity: 0; }
+  from { transform: translateY(15px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
+.logout-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
 
+.logout-popup.show {
+  display: flex;
+}
+
+.logout-popup-content {
+  background: #fff;
+  padding: 24px 32px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.logout-popup-content img{
+  width: 70px;
+  margin-bottom: 16px;
+}
+
+.logout-popup-content h3 {
+  margin-bottom: 16px;
+  font-size: 18px;
+}
+
+.logout-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.logout-buttons button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+#confirmLogout {
+  background-color: #f44336;
+  color: white;
+}
+
+#confirmLogout:hover {
+  background-color: #d32f2f;
+}
+
+#cancelLogout {
+  background-color: #ccc;
+}
+
+#cancelLogout:hover {
+  background-color: #aaa;
+}
+.order-history-section {
+  padding: 16px;
+}
+
+.order-history-section h2 {
+  font-size: 22px;
+  margin-bottom: 12px;
+  color: #d2691e; 
+}
+
+.orders-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.order-card {
+  justify-items: center;
+  background: #fff3e0;
+  border-radius: 12px;
+  padding: 12px;
+  width: 180px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.order-card:hover {
+  transform: translateY(-4px);
+}
+
+.order-card img {
+  width: 70%;
+  height: 50%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.order-card h4 {
+  margin: 8px 0 4px;
+  font-size: 16px;
+  color: #a0522d;
+}
+
+.order-card p {
+  font-size: 14px;
+  color: #555;
+}
+
+#noOrdersMsg {
+  font-size: 15px;
+  color: #888;
+  margin-top: 8px;
+}

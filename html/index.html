@@ -5,15 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bakeology</title>
   <link rel="stylesheet" href="/style/indexStlye.css">
+  <link rel="stylesheet" href="/style/general.css">
 </head>
 <body>
   <header>
-    <div class="logo">Bakeology</div>
+    <div class="logo">GoldenBakes</div>
     <nav>
       <a href="index.html" class="">Home</a>
-      <a href="products" class="nav-link">Products</a>
-      <a href="" class="nav-link">Recipe</a>
-      <a href="" class="nav-link">Feedback</a>
+      <a href="#" class="nav-link">Products</a>
+      <a href="#" class="nav-link">Recipe</a>
+      <a href="#" class="nav-link">Feedback</a>
     </nav>
     <div class="account">
       <a id="acc" href="login.html">login</a>
@@ -49,10 +50,11 @@
     </section>
   </main>
 
+
   <div id="loginPopup" class="popup">
     <div class="popup-content">
       <span class="close-popup">&times;</span>
-      <h2> Login Required</h2>
+      <h2>Login Required</h2>
       <p>Please log in to continue.</p>
       <div class="popup-buttons">
         <button id="goLogin">Go to Login</button>
@@ -61,20 +63,39 @@
     </div>
   </div>
 
-  
-
   <script>
-    const btnDark = document.querySelector(".btn-dark");
-    btnDark.addEventListener("click", () => {
-      window.location.href = "login.html";
+
+    document.querySelector(".btn-dark").addEventListener("click", () => {
+      window.location.href = "register.html";
     });
 
-    const learnMoreBtn = document.getElementById("learnMoreBtn");
-    learnMoreBtn.addEventListener("click", () => {
+    document.getElementById("learnMoreBtn").addEventListener("click", () => {
       window.location.href = "about.html";
     });
-  </script>
 
-  <script src="/js/loginSignin.js"></script>
+
+    const loginPopup = document.getElementById("loginPopup");
+    const loginCloseBtn = loginPopup.querySelector(".close-popup");
+    const cancelPopupBtn = document.getElementById("cancelPopup");
+    const goLoginBtn = document.getElementById("goLogin");
+
+    function showLoginPopup() {
+      loginPopup.style.display = "flex";
+    }
+
+    loginCloseBtn.addEventListener("click", () => loginPopup.style.display = "none");
+    cancelPopupBtn.addEventListener("click", () => loginPopup.style.display = "none");
+    goLoginBtn.addEventListener("click", () => window.location.href = "login.html");
+
+
+    document.querySelectorAll("header nav a").forEach(link => {
+      if (link.textContent.trim() !== "Home") {
+        link.addEventListener("click", e => {
+          e.preventDefault();
+          showLoginPopup();
+        });
+      }
+    });
+  </script>
 </body>
 </html>

@@ -5,31 +5,108 @@ const popupImage = document.getElementById("popupImage");
 const closeBtn = document.querySelector(".close");
 const recipeContainer = document.getElementById("recipeContainer");
 const searchInput = document.getElementById("searchInput");
+const acc = document.querySelector('.register');
+
+
+
+
+
+  acc.addEventListener('click', () => {
+      window.location.href = 'account.html';
+    });
 
 const recipesData = [
+
   {
-    title: "Classic Bread",
-    description: "Fluffy homemade bread made with love and patience.",
-    image: "/images/bread.png",
-    type: "bread",
-    steps: "1. Mix flour, yeast, sugar, and salt.\n2. Add water and knead.\n3. Let it rise for 1 hour.\n4. Bake at 180°C for 25 mins."
-  },
-  {
-    title: "Garlic Bread",
-    description: "Toasted bread topped with garlic butter and herbs.",
-    image: "/images/cinnamon.png",
-    type: "garlic",
-    steps: "1. Slice the bread.\n2. Mix butter, garlic, and parsley.\n3. Spread and toast.\n4. Serve warm."
-  },
-  {
-    title: "Banana Bread",
-    description: "Sweet and moist banana loaf perfect for any snack.",
+    title: "Chocolate Cake",
+    description: "Rich, moist, and chocolatey heaven.",
     image: "/images/cakes-removebg-preview.png",
-    type: "banana",
-    steps: "1. Mash bananas.\n2. Mix flour, sugar, eggs, and butter.\n3. Bake for 40 minutes.\n4. Cool and serve."
+    type: "cake",
+    steps: "1. Mix cocoa, flour, sugar, and eggs.\n2. Bake until fluffy.\n3. Frost with rich chocolate icing.\n4. Slice and serve."
   },
- 
+  {
+    title: "Round Chocolate Donut",
+    description: "Fluffy, golden donut coated in rich chocolate — pure indulgence in every bite.",
+    image: "/images/RoundChocolateeDonut-removebg-preview.png",
+    type: "donut",
+    steps: "1. Mix dough and shape into rings.\n2. Fry until golden brown.\n3. Dip in melted chocolate.\n4. Cool and enjoy."
+  },
+  {
+    title: "Cookies",
+    description: "Sweet, crunchy, and melt-in-your-mouth goodness.",
+    image: "/images/cookies-removebg-preview.png",
+    type: "cookie",
+    steps: "1. Cream butter and sugar.\n2. Add flour and chocolate chips.\n3. Scoop onto tray.\n4. Bake until golden."
+  },
+  {
+    title: "Flaky Croissant",
+    description: "Buttery layers baked to perfection.",
+    image: "/images/Croissant-removebg-preview.png",
+    type: "pastry",
+    steps: "1. Roll dough with butter layers.\n2. Fold and chill repeatedly.\n3. Shape into crescents.\n4. Bake until golden and flaky."
+  },
+  {
+    title: "Cinnamon Roll",
+    description: "Soft, warm, and sprinkled with cinnamon sugar.",
+    image: "/images/cinnamon.png",
+    type: "pastry",
+    steps: "1. Roll dough with cinnamon filling.\n2. Slice and let rise.\n3. Bake until golden.\n4. Drizzle with icing."
+  },
+  {
+    title: "Cupcake",
+    description: "Light, airy cake in every bite, finished with rich, creamy frosting.",
+    image: "/images/cupcake.png",
+    type: "cake",
+    steps: "1. Mix batter and pour into cups.\n2. Bake until fluffy.\n3. Cool and frost.\n4. Decorate and serve."
+  },
+  {
+    title: "Chocolate Croissant",
+    description: "Crisp on the outside, soft inside, with smooth chocolate that melts in your mouth.",
+    image: "/images/ChocolateCroissant.png",
+    type: "pastry",
+    steps: "1. Roll croissant dough with chocolate.\n2. Shape and let rise.\n3. Bake until golden.\n4. Serve warm."
+  },
+  {
+    title: "Pumpkin Pie",
+    description: "Smooth, spiced pumpkin filling in a flaky crust — a cozy taste of fall.",
+    image: "/images/PumpkinPie.png",
+    type: "pie",
+    steps: "1. Prepare crust and fill with pumpkin mixture.\n2. Bake until set.\n3. Cool completely.\n4. Top with whipped cream."
+  },
+  {
+    title: "Galleta",
+    description: "Simple, sweet, and utterly satisfying — the perfect bite anytime.",
+    image: "/images/Galleta.png",
+    type: "cookie",
+    steps: "1. Mix butter, sugar, and flour.\n2. Shape into rounds.\n3. Bake until golden.\n4. Cool and enjoy."
+  },
+  {
+    title: "Pretzel",
+    description: "Chewy inside, crisp outside, with that signature pretzel twist.",
+    image: "/images/pretzel.png",
+    type: "bread",
+    steps: "1. Shape dough into pretzels.\n2. Dip in baking soda water.\n3. Bake until golden.\n4. Sprinkle with salt."
+  },
+  {
+    title: "Bagel",
+    description: "Soft and chewy inside with a golden crust — a classic bagel for any time of day.",
+    image: "/images/bagel.png",
+    type: "bread",
+    steps: "1. Shape dough into rings.\n2. Boil briefly.\n3. Bake until golden.\n4. Serve with your favorite spread."
+  },
+  {
+    title: "Concha",
+    description: "Soft, fluffy, and sweet — a classic Mexican concha with a crunchy sugar topping.",
+    image: "/images/concha.png",
+    type: "bread",
+    steps: "1. Prepare sweet dough.\n2. Add sugar topping pattern.\n3. Let rise.\n4. Bake until soft and lightly golden."
+  },
+
+
 ];
+
+ 
+
 
 function displayRecipes(recipes) {
   recipeContainer.innerHTML = recipes
@@ -81,3 +158,8 @@ window.addEventListener("click", e => {
 });
 
 displayRecipes(recipesData);
+
+const activeUser = JSON.parse(localStorage.getItem("activeUser"));
+if (activeUser) {
+  document.getElementById("userDisplay").textContent = `Hello, ${activeUser.username}!`;
+}

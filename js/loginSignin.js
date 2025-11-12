@@ -73,7 +73,7 @@ if (currentPage === "login.html") {
 
   const errorMsg = document.createElement("div");
   errorMsg.style.color = "red";
-  errorMsg.style.fontSize = "22px";
+  errorMsg.style.fontSize = "15px";
   errorMsg.style.marginTop = "5px";
   passwordInput.insertAdjacentElement("afterend", errorMsg);
 
@@ -144,5 +144,7 @@ if (currentPage === "signin.html" || currentPage === "register.html") {
     });
   }
 }
+
+
 
 

@@ -12,6 +12,7 @@ const recommended = [
   { name: "Chocolate Muffin", price: 60, desc: "Rich chocolate muffin for a sweet bite.", image: "/images/cakes-removebg-preview.png" }
 ];
 
+
 const productGrid = document.getElementById("Bestsellers");
 products.forEach(product => {
   const card = document.createElement("div");
@@ -28,6 +29,7 @@ products.forEach(product => {
   productGrid.appendChild(card);
 });
 
+
 const recommendedContainer = document.querySelector(".recommended-items");
 recommended.forEach(item => {
   const card = document.createElement("div");
@@ -35,6 +37,7 @@ recommended.forEach(item => {
   card.dataset.name = item.name;
   card.dataset.price = item.price;
   card.dataset.desc = item.desc;
+  card.dataset.image = item.image;
   card.innerHTML = `
     <img src="${item.image}" alt="${item.name}">
     <p class="recommended-name">${item.name}</p>
@@ -43,8 +46,8 @@ recommended.forEach(item => {
   recommendedContainer.appendChild(card);
 });
 
+
 const popup = document.getElementById("productPopup");
-const closeBtn = document.querySelector(".close-popup");
 const popupImage = document.getElementById("popupImage");
 const popupName = document.getElementById("popupName");
 const popupPrice = document.getElementById("popupPrice");
@@ -75,11 +78,6 @@ function closePopup(){
   document.body.classList.remove("popup-active");
 }
 
-closeBtn.addEventListener("click", closePopup);
-popup.addEventListener("click", e => { if(e.target === popup) closePopup(); });
-
-increaseBtn.addEventListener("click", () => { qty++; qtyEl.textContent = qty; updateTotal(); });
-decreaseBtn.addEventListener("click", () => { if(qty>1){ qty--; qtyEl.textContent=qty; updateTotal(); } });
 
 document.querySelectorAll(".product-card, .recommended-card").forEach(card=>{
   card.addEventListener("click", ()=> openPopup({
@@ -90,80 +88,74 @@ document.querySelectorAll(".product-card, .recommended-card").forEach(card=>{
   }));
 });
 
-const loginMessage = document.createElement("div");
-loginMessage.style.position = "absolute";
-loginMessage.style.top = "10px";
-loginMessage.style.left = "50%";
-loginMessage.style.transform = "translateX(-50%)";
-loginMessage.style.backgroundColor = "#ff4d4d";
-loginMessage.style.color = "#fff";
-loginMessage.style.padding = "10px 20px";
-loginMessage.style.borderRadius = "10px";
-loginMessage.style.fontWeight = "bold";
-loginMessage.style.display = "none";
-loginMessage.style.zIndex = "9999";
-loginMessage.style.textAlign = "center";
-loginMessage.textContent = "You need to log in to continue.";
-popup.querySelector(".popup-content").appendChild(loginMessage);
+document.querySelector(".close-popup")?.addEventListener("click", closePopup);
+popup.addEventListener("click", e => { if(e.target === popup) closePopup(); });
 
-function showLoginMessage(){
-  loginMessage.style.display = "block";
-  setTimeout(()=>{ loginMessage.style.display = "none"; }, 2000);
+increaseBtn.addEventListener("click", () => { qty++; qtyEl.textContent = qty; updateTotal(); });
+decreaseBtn.addEventListener("click", () => { if(qty>1){ qty--; qtyEl.textContent=qty; updateTotal(); } });
+
+
+const loginPopup = document.getElementById("loginPopup");
+const loginCloseBtn = loginPopup.querySelector(".close-popup");
+const cancelPopupBtn = document.getElementById("cancelPopup");
+const goLoginBtn = document.getElementById("goLogin");
+
+function showLoginPopup() {
+  loginPopup.style.display = "flex";
+  loginPopup.classList.add("fade-in");
 }
 
-const headerCart = document.getElementById("acc");
-const headerAccount = document.getElementById("account");
-const bodyRecipeBtn = document.querySelector(".btn-dark");
+loginCloseBtn.addEventListener("click", () => loginPopup.style.display = "none");
+cancelPopupBtn.addEventListener("click", () => loginPopup.style.display = "none");
+goLoginBtn.addEventListener("click", () => { window.location.href = "login.html"; });
 
-[headerCart, headerAccount, bodyRecipeBtn].forEach(el=>{
-  if(el){
-    el.addEventListener("click", e=>{
+
+document.querySelectorAll("header nav a").forEach(link => {
+  if(link.textContent.trim() !== "Home"){
+    link.addEventListener("click", e => {
       e.preventDefault();
-      alert("You need to log in to continue."); 
+      showLoginPopup();
     });
   }
 });
 
-document.querySelectorAll("nav a").forEach(link=>{
-  if(link.textContent !== "Home"){
-    link.addEventListener("click", e=>{
-      e.preventDefault();
-      alert("You need to log in to continue.");
-    });
-  }
-});
 
-const shopBtn = document.querySelector("#shopBtn");
-const mainContent = document.querySelector("main");
-const productsSection = document.querySelector("#products");
-if(productsSection) productsSection.style.display="none";
+addCartBtn.addEventListener("click", showLoginPopup);
+orderNowBtn.addEventListener("click", showLoginPopup);
 
-shopBtn.addEventListener("click", ()=>{
-  mainContent.style.transition="all 0.8s ease"; mainContent.style.opacity="0"; mainContent.style.transform="translateY(-50px)";
-  setTimeout(()=>{
-    mainContent.style.display="none";
-    productsSection.style.display="block"; productsSection.style.opacity="0"; productsSection.style.transform="translateY(50px)";
-    setTimeout(()=>{
-      productsSection.style.transition="all 0.8s ease"; productsSection.style.opacity="1"; productsSection.style.transform="translateY(0)";
-    },50);
-  },800);
-});
-
-addCartBtn.addEventListener("click", showLoginMessage);
-orderNowBtn.addEventListener("click", showLoginMessage);
 
 const searchInput = document.getElementById("searchInput");
 searchInput.addEventListener("input", ()=>{
   const query = searchInput.value.toLowerCase();
-  const filtered = products.filter(p=>p.name.toLowerCase().includes(query)||p.desc.toLowerCase().includes(query));
+  const filtered = products.filter(p=>p.name.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query));
   productGrid.innerHTML="";
   filtered.forEach(product=>{
     const card = document.createElement("div");
     card.classList.add("product-card");
-    card.dataset.name = product.name; card.dataset.price = product.price;
-    card.dataset.desc = product.desc; card.dataset.image = product.image;
+    card.dataset.name = product.name;
+    card.dataset.price = product.price;
+    card.dataset.desc = product.desc;
+    card.dataset.image = product.image;
     card.innerHTML = `<img src="${product.image}" alt="${product.name}"><h3>${product.name}</h3><p>${product.desc}</p>`;
     productGrid.appendChild(card);
     card.addEventListener("click", ()=>openPopup(product));
   });
+});
+
+const loginPrompt = document.getElementById("loginPrompt");
+const closePrompt = document.getElementById("closePrompt");
+
+
+document.querySelectorAll("header nav a").forEach(link => {
+  if(link.textContent.trim() !== "Home"){
+    link.addEventListener("click", e => {
+      e.preventDefault();          
+      loginPrompt.style.display = "block"; 
+    });
+  }
+});
+
+
+closePrompt.addEventListener("click", () => {
+  loginPrompt.style.display = "none";
 });

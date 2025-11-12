@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Cart | Bakeology</title>
   <link rel="stylesheet" href="/style/cart.css">
+  <link rel="stylesheet" href="/style/general.css">
 </head>
 <body>
   <header>
-    <div class="logo">Bakeology</div>
+    <div class="logo">GolderBakes</div>
     <nav>
       <a href="product.html">Home</a>
       <a href="product.html">Products</a>
@@ -16,8 +17,8 @@
       <a href="feedback.html">Feedback</a>
     </nav>
     <div class="account">
-      <a href="cart.html" id="cartLink">Cart</a>
-      <button id="accountBtn">Accounts</button>
+      <a href="cart.html" id="acc">Cart</a>
+      <button class="register" id="account">Accounts</button>
     </div>
   </header>
 
@@ -35,6 +36,11 @@
   <footer>
     <p>&copy; 2025 Bakeology. All Rights Reserved.</p>
   </footer>
+  <script>
+    document.getElementById('account').addEventListener('click', function() {
+      window.location.href = 'account.html';
+    });
+  </script>
 
   <script src="/js/cart.js"></script>
 </body>
